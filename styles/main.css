@@ -21,6 +21,11 @@ a {
   color: inherit;
 }
 
+img {
+  image-rendering: optimize-contrast;
+  image-rendering: -webkit-optimize-contrast;
+}
+
 body {
   font-family: "Arial", "Helvetica Neue", sans-serif;
   font-size: 16px;

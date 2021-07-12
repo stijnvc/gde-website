@@ -17,7 +17,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
+img{
+  image-rendering: optimize-contrast;
+  image-rendering: -webkit-optimize-contrast;
+}
 $large-font: 1.5em;
 
 
