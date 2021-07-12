@@ -29,9 +29,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 375px) {
   body {
-    padding: 20px;
+    font-size: 20px;
   }
 }
 
