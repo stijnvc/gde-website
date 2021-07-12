@@ -12,6 +12,12 @@
     $(document).ready(function(){
       // Target your .container, .wrapper, .post, etc.
       $("main").fitVids();
+
+      $(".hamburger").click(function( event ) {
+        event.preventDefault();
+        $("header").toggleClass('menu-open');
+      });
+
     });
 </script>
   </head>
@@ -20,6 +26,7 @@
       <div class="content clearfix">
         <a class="main-title" href="#">Gijs Ebben</a>
         <nav>
+          <div class="clearfix"><a class="hamburger" href="#"></a></div>
           <div class="pages">
             <a id="works" href="#">Works</a>
             <a id="about" href="#">About</a>

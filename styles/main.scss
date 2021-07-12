@@ -23,16 +23,19 @@ $large-font: 1.5em;
 
 body {
   font-family: "Arial", "Helvetica Neue", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
+  @media(min-width: 768px){
+    padding: 20px;
+  }
   @media (min-width: 1920px){
-    font-size: 25px;
+    font-size: 24px;
   }
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 #works {
-  border-bottom: 1px solid black;
+  text-decoration: underline;
 }
 header {
   position: fixed;
@@ -41,34 +44,86 @@ header {
   left: 0;
   width: 100%;
   padding: 2rem 3rem;
+  @media(max-width: 767px){
+    padding: 1rem 1.5rem;
+  }
+  &.menu-open {
+    @media(max-width: 767px) {
+      background-color: white;
+      height: 100vh;
+      .hamburger:after {
+        content: "✕";
+      }
+    }
+    .pages,
+    .categories {
+      display: block;
+    }
+  }
   .content {
     position: relative;
   }
   .main-title {
     text-transform: uppercase;
     font-weight: bold;
-    float: left;
+    position: absolute;
     font-size: $large-font;
   }
   nav {
-    float: right;
-    .pages {
-      //font-size: $large-font;
-      line-height: 1.8em;
-      a {
-        display: inline-block;
-        margin-left: 1em;
+    @media(min-width: 768px) {
+      float: right;
+      .pages {
+        //font-size: $large-font;
+        line-height: 1.8em;
+        a {
+          display: inline-block;
+          margin-left: 1em;
+        }
+      }
+      .categories {
+        position: absolute;
+        left: 0;
+        margin-top: .5em;
+        a {
+          display: inline-block;
+          margin-right: .75em;
+          span {
+            font-size: 1.2em;
+          }
+        }
       }
     }
-    .categories {
-      position: absolute;
-      left: 0;
-      margin-top: .5em;
-      a {
-        display: inline-block;
-        margin-right: .75em;
-        span {
-          font-size: 1.2em;
+    @media(max-width: 767px) {
+      float: right;
+      text-align: right;
+      .hamburger {
+        float: right;
+        margin-bottom: 1em;
+        padding: 0 .2em;
+        font-size: $large-font;
+      }
+      .hamburger:after {
+        content: "＋";
+      }
+      .pages,
+      .categories {
+        display: none;
+      }
+      .pages {
+        //font-size: $large-font;
+        margin-bottom: 2em;
+        a {
+          display: block;
+          padding: .5em 0;
+        }
+      }
+      .categories {
+        a {
+          display: block;
+          padding: .2em 0;
+          span {
+            font-size: 1.2em;
+          }
         }
       }
     }
@@ -81,6 +136,10 @@ main {
   flex-wrap: wrap;
   margin-top: 16rem;
   padding: 0 3rem;
+  @media(max-width: 767px){
+    margin-top: 10rem;
+    padding: 0 1.5rem;
+  }
 }
 hr {
   flex-basis: 100%;
@@ -92,6 +151,9 @@ article {
   width: 50%;
   @media(max-width: 1280px) {
     width: 100%;
+  }
+  @media(max-width: 767px){
+    margin-bottom: 2rem;
   }
   .content{
     position: absolute;
@@ -139,19 +201,23 @@ article {
       }
     }
   }
-  &.small {
-    .content {
-      padding: 16%;
+  @media(min-width: 768px) {
+    &.small {
+      .content {
+        padding: 16%;
+      }
     }
-  }
-  &.medium {
-    .content {
-      padding: 8%;
+    &.medium {
+      .content {
+        padding: 8%;
+      }
     }
   }
 }
 article:nth-child(even){
-  transform: translate(0, 8%);
+  @media(min-width: 1280px) {
+    transform: translate(0, 8%);
+  }
 }
 article:hover{
   .meta {
