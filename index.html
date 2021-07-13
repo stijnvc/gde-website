@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>Gijs Ebben</title>
     <meta name="viewport" content="width=device-width">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/jquery.fitvids.js"></script>
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/main.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/jquery.fitvids.js"></script>
+    <script src="js/responsiveslides.min.js"></script>
     <script>
     $(document).ready(function(){
       // Target your .container, .wrapper, .post, etc.
@@ -16,6 +17,30 @@
       $(".hamburger").click(function( event ) {
         event.preventDefault();
         $("header").toggleClass('menu-open');
+      });
+
+      $(".rslides_nav").click(function( event ) {
+        $('.content').each(function(i, obj) {
+          current = $(this).find(".rslides_here a").html();
+          $(this).find(".current").html(current);
+        });
+      });
+
+
+
+      $('.content').each(function(i, obj) {
+        if(Math.random() < 0.5){
+          x = Math.random();
+        } else {
+          x = -Math.random();
+        }
+        if(Math.random() < 0.5){
+          y = Math.random();
+        } else {
+          y = -Math.random();
+        }
+        $(this).css('--direction-x', x + "%");
+        $(this).css('--direction-y', y + "%");
       });
 
     });
@@ -48,7 +73,7 @@
              <img src="img/portret.jpg">
            </div>
            <div class="meta">
-             <div><span class="title">Article Title</span> <span class="count">(1/5)</span><br>Client Name, 2021</div>
+             <div><span class="title">Article Title</span> <span class="count">(<span class="current">1</span>/<span class="total">1</span>)</span><br>Client Name, 2021</div>
            </div>
          </div>
        </article>
@@ -58,29 +83,33 @@
              <img src="img/img_1746-klein-1024x683.jpg">
            </div>
            <div class="meta">
-             <div><span class="title">Article Title</span> <span class="count">(1/5)</span><br>Client Name, 2021</div>
+             <div><span class="title">Article Title</span> <span class="count">(<span class="current">1</span>/<span class="total">1</span>)</span><br>Client Name, 2021</div>
            </div>
          </div>
        </article>
-       <hr>
        <article class="medium">
          <div class="content">
            <div class="visual">
-             <img src="img/img_4384-klein-1024x683.jpg">
+              <ul class="rslides">
+                <li><img src="img/img_4384-klein-1024x683.jpg"></li>
+                <li><img src="img/img_1746-klein-1024x683.jpg"></li>
+                <li><img src="img/img_2627-klein-1024x683.jpg"></li>
+                <li><img src="img/img_3015-klein-1024x683.jpg"></li>
+                <li><img src="img/img_3485-klein-1024x683.jpg"></li>
+              </ul>
            </div>
            <div class="meta">
-             <div><span class="title">Article Title</span> <span class="count">(1/5)</span><br>Client Name, 2021</div>
+             <div><span class="title">Article Title</span> <span class="count">(<span class="current">1</span>/<span class="total">1</span>)</span><br>Client Name, 2021</div>
            </div>
          </div>
        </article>
-       <hr>
        <article class="medium">
          <div class="content">
            <div class="visual">
              <img src="img/img_2627-klein-1024x683.jpg">
            </div>
            <div class="meta">
-             <div><span class="title">Article Title</span> <span class="count">(1/5)</span><br>Client Name, 2021</div>
+             <div><span class="title">Article Title</span> <span class="count">(<span class="current">1</span>/<span class="total">1</span>)</span><br>Client Name, 2021</div>
            </div>
          </div>
        </article>
@@ -90,10 +119,38 @@
              <img src="img/img_3015-klein-1024x683.jpg">
            </div>
            <div class="meta">
-             <div><span class="title">Article Title</span> <span class="count">(1/5)</span><br>Client Name, 2021</div>
+             <div><span class="title">Article Title</span> <span class="count">(<span class="current">1</span>/<span class="total">1</span>)</span><br>Client Name, 2021</div>
            </div>
          </div>
        </article>
+       <script>
+        $(".rslides").responsiveSlides({
+          auto: false,             // Boolean: Animate automatically, true or false
+          speed: 300,            // Integer: Speed of the transition, in milliseconds
+          timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+          pager: true,           // Boolean: Show pager, true or false
+          nav: true,             // Boolean: Show navigation, true or false
+          random: false,          // Boolean: Randomize the order of the slides, true or false
+          pause: true,           // Boolean: Pause on hover, true or false
+          pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+          prevText: "",   // String: Text for the "previous" button
+          nextText: "",       // String: Text for the "next" button
+          maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
+          navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+          manualControls: "",     // Selector: Declare custom pager navigation
+          namespace: "rslides",   // String: Change the default namespace used
+          before: function(){},   // Function: Before callback
+          after: function(){}     // Function: After callback
+        });
+
+
+        $('.content').each(function(i, obj) {
+          total = $(this).find(".rslides_tabs li").length;
+          if (total == 0) total = 1;
+          $(this).find(".total").html(total);
+        });
+
+      </script>
     </main>
   </body>
 </html>
