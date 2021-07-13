@@ -130,11 +130,12 @@ header .main-title {
   header nav .hamburger {
     float: right;
     margin-bottom: 1em;
-    padding: 0 .2em;
+    margin-right: -.5em;
+    padding: 0 .5em;
     font-size: 1.5em;
   }
   header nav .hamburger:after {
-    content: "＋";
+    content: "≡";
   }
   header nav .pages,
   header nav .categories {
