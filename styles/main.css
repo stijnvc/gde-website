@@ -250,6 +250,7 @@ article .content .visual .rslides li:first-child {
 
 article .content .visual .rslides_nav {
   z-index: 999;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 article .content .visual .rslides_nav.prev {
