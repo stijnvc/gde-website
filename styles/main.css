@@ -97,7 +97,7 @@ header .main-title {
 }
 
 header nav .pages a:hover, header nav .categories a:hover {
-  font-style: italic;
+  font-style: oblique;
 }
 
 header nav .pages a:hover span, header nav .categories a:hover span {
