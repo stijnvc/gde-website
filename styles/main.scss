@@ -42,7 +42,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 #works {
-  text-decoration: underline;
+  text-decoration: line-through;
 }
 header {
   position: fixed;
@@ -77,6 +77,12 @@ header {
     font-size: $large-font;
   }
   nav {
+    .pages a:hover, .categories a:hover {
+      font-style: italic;
+      span {
+        font-style: normal;
+      }
+    }
     @media(min-width: 768px) {
       float: right;
       .pages {

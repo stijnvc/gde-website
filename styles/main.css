@@ -52,7 +52,7 @@ body {
 }
 
 #works {
-  text-decoration: underline;
+  text-decoration: line-through;
 }
 
 header {
@@ -94,6 +94,14 @@ header .main-title {
   font-weight: bold;
   position: absolute;
   font-size: 1.5em;
+}
+
+header nav .pages a:hover, header nav .categories a:hover {
+  font-style: italic;
+}
+
+header nav .pages a:hover span, header nav .categories a:hover span {
+  font-style: normal;
 }
 
 @media (min-width: 768px) {
